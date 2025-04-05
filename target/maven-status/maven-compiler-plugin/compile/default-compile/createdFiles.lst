@@ -1,5 +1,9 @@
-ca/mcmaster/se2aa4/mazerunner/Maze.class
 ca/mcmaster/se2aa4/mazerunner/User.class
+ca/mcmaster/se2aa4/mazerunner/BasicPathFormatter.class
 ca/mcmaster/se2aa4/mazerunner/FileMazeLoader.class
+ca/mcmaster/se2aa4/mazerunner/CompressedPathFormatter.class
+ca/mcmaster/se2aa4/mazerunner/CommaSeparatedMazeAdapter.class
+ca/mcmaster/se2aa4/mazerunner/Maze.class
 ca/mcmaster/se2aa4/mazerunner/MazeLoader.class
+ca/mcmaster/se2aa4/mazerunner/PathFormatter.class
 ca/mcmaster/se2aa4/mazerunner/Main.class

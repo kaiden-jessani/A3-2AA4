@@ -5,6 +5,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.commons.cli.*;
 
+import ca.mcmaster.se2aa4.mazerunner.PathFormatter;
+import ca.mcmaster.se2aa4.mazerunner.BasicPathFormatter;
+import ca.mcmaster.se2aa4.mazerunner.CompressedPathFormatter;
+
 public class Main {
     // private static final Logger logger = LogManager.getLogger();
 
@@ -64,7 +68,8 @@ public class Main {
             // logger.info("**** Maze Navigation Complete");
 
             // Compress the computed path sequence
-            String computedPath = compress(directions.toString());
+            PathFormatter formatter = new CompressedPathFormatter(new BasicPathFormatter());
+            String computedPath = formatter.format(directions.toString());
 
             // Check if a path verification flag was provided
             if (cmd.hasOption("p")) {
@@ -83,28 +88,6 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Unexpected error occurred");
         }
-
-        // System.out.println("** End of Maze Runner");
     }
 
-    // Compresses a path sequence by counting consecutive movements
-    public static String compress(String input) {
-        if (input == null || input.isEmpty()) {
-            return "";
-        }
-        StringBuilder result = new StringBuilder();
-        char currentChar = input.charAt(0);
-        int count = 1;
-        for (int i = 1; i < input.length(); i++) {
-            if (input.charAt(i) == currentChar) {
-                count++;
-            } else {
-                result.append(count).append("").append(currentChar).append("");
-                currentChar = input.charAt(i);
-                count = 1;
-            }
-        }
-        result.append(count).append("").append(currentChar);
-        return result.toString().trim();
-    }
 }
